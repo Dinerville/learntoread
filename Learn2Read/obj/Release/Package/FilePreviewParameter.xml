@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="learntoread" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\na_di\\onedrive\\documents\\visual\ studio\ 2015\\Projects\\Learn2Read\\Learn2Read\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\na_di\\onedrive\\documents\\visual\ studio\ 2015\\Projects\\Learn2Read\\Learn2Read\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+</parameters>
