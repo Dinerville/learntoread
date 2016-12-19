@@ -19,11 +19,6 @@ namespace Learn2Read
             btn2Video.Attributes.Add("runat", "server");
             btn2Video.Click += new EventHandler(btn2Video_Click);
 
-            btnWords = new Button();
-            btnWords.Text = "Слова примеры";
-            btnWords.Attributes.Add("runat", "server");
-            btnWords.Click += new EventHandler(btnWords_Click);
-
             btnExercise = new Button();
             btnExercise.Text = "Упражнения";
             btnExercise.Attributes.Add("runat", "server");
@@ -36,9 +31,6 @@ namespace Learn2Read
 
             Menu.Controls.Add(new LiteralControl("<div id=\"DivVideoLesson\">"));
             Menu.Controls.Add(btn2Video);
-            Menu.Controls.Add(new LiteralControl("</div>"));
-            Menu.Controls.Add(new LiteralControl("<div id=\"DivExamplesWords\">"));
-            Menu.Controls.Add(btnWords);
             Menu.Controls.Add(new LiteralControl("</div>"));
             Menu.Controls.Add(new LiteralControl("<div id=\"DivExercise\">"));
             Menu.Controls.Add(btnExercise);
@@ -379,24 +371,6 @@ namespace Learn2Read
             }
         }
        
-        protected void btnWords_Click(object sender, EventArgs e)
-        {
-            if (ViewState["VideoState"] != null)
-            {
-                var currentElement = SoundsData.AllSoundsModels()[ViewState["VideoState"].ToString()];
-                for (int i = 0; i < currentElement.WordsList.Count; i++)
-                {
-                    var wordLabel = new Label();
-                    wordLabel.Text = $"{currentElement.WordsList[i].WordEnglish} {currentElement.WordsList[i].Transcription} {currentElement.WordsList[i].WordRussian}";
-                    CurrentElement.Controls.Add(wordLabel);
-                    CurrentElement.Controls.Add(new LiteralControl("<br />"));
-                }
-            }
-            else
-            {
-                CurrentElement.Controls.Add(new LiteralControl("<h2> <<<<<<<<<<<Выберите звук, пожалуйста </h2>"));
-            }
-        }
         protected void btnExercise_Click(object sender, EventArgs e)
         {
         }
