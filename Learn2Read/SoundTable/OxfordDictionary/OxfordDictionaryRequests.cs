@@ -12,19 +12,26 @@ namespace Learn2Read
 {
     public class OxfordDictionaryRequests
     {
-        public void GetTranscription(string word)
+        public string GetTranscription(string word)
         {
-            string url = $"https://od-api.oxforddictionaries.com:443/api/v1/entries/en/{word}/pronunciations";
+            string site = $"https://od-api.oxforddictionaries.com:443/api/v1/entries/en/{word}/pronunciations";
 
-            using (var webClient = new WebClient())
-            {
-                webClient.QueryString.Add("Accept", "application/json");
-                webClient.QueryString.Add("app_id", "b9995a56");
-                webClient.QueryString.Add("app_key", "113e76a6337da3ba5897246665ecae67");
-                var response = webClient.DownloadString(url);
-                JObject json = JObject.Parse(response);
-                
-            }
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(site);
+
+            request.Method = "GET";
+            request.Accept = "application/json";
+            request.Headers.Add("app_id:b9995a56");
+            request.Headers.Add("app_key:113e76a6337da3ba5897246665ecae67");
+
+
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            StringBuilder output = new StringBuilder();
+            var outp = output.Append(reader.ReadToEnd());
+
+            response.Close();
+            return $"{outp}";
+
         }
 
         

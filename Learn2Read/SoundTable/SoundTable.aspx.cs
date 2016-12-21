@@ -391,5 +391,16 @@ namespace Learn2Read
         {
             CurrentElement.Controls.Add(new LiteralControl("<p>Это текст про короткие гласные</p>"));
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            
+            var text = TextBox1.Text;
+            var oxforPronunciation = new OxfordDictionaryRequests();
+            var t = oxforPronunciation.GetTranscription(text);
+            Label1.Text = t;
+
+
+        }
     }
 }

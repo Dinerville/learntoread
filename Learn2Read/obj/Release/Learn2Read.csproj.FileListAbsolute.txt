@@ -32,6 +32,6 @@ C:\Users\na_di\OneDrive\Documents\Visual Studio 2015\Projects\Learn2Read\Learn2R
 C:\Users\na_di\OneDrive\Documents\Visual Studio 2015\Projects\Learn2Read\Learn2Read\obj\Release\Learn2Read.pdb
 C:\Users\na_di\OneDrive\Documents\Visual Studio 2015\Projects\Learn2Read\Learn2Read\bin\Microsoft.ApplicationInsights.TraceListener.dll
 C:\Users\na_di\OneDrive\Documents\Visual Studio 2015\Projects\Learn2Read\Learn2Read\bin\Microsoft.ApplicationInsights.TraceListener.xml
-C:\Users\na_di\onedrive\documents\visual studio 2015\Projects\Learn2Read\Learn2Read\obj\Release\Learn2Read.csprojResolveAssemblyReference.cache
 C:\Users\na_di\onedrive\documents\visual studio 2015\Projects\Learn2Read\Learn2Read\bin\Newtonsoft.Json.dll
 C:\Users\na_di\onedrive\documents\visual studio 2015\Projects\Learn2Read\Learn2Read\bin\Newtonsoft.Json.xml
+C:\Users\na_di\onedrive\documents\visual studio 2015\Projects\Learn2Read\Learn2Read\obj\Release\Learn2Read.csprojResolveAssemblyReference.cache
