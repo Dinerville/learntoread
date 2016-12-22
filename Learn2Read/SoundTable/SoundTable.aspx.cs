@@ -2,10 +2,15 @@
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Media;
+using System.Linq;
+using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
+using System.Web.Script.Serialization;
+using Newtonsoft.Json;
 
 namespace Learn2Read
 {
-    public partial class SoundTable : System.Web.UI.Page
+    public partial class SoundTable : Page
     {
         Button btn2Video;
         Button btnWords;
@@ -397,8 +402,21 @@ namespace Learn2Read
             
             var text = TextBox1.Text;
             var oxforPronunciation = new OxfordDictionaryRequests();
-            var t = oxforPronunciation.GetTranscription(text);
-            Label1.Text = t;
+            var t = oxforPronunciation.GetJSONPronunsiation(text);
+
+            var objectr = JsonConvert.DeserializeObject<RootObject>(t);
+
+            
+            var sound = objectr.results[0].lexicalEntries[0].pronunciations[0].audioFile;
+            Label1.Text = sound;
+            
+            PlaceHolder1.Controls.Add(new LiteralControl($"<audio src=\"{sound}\" controls autoplay ></audio>"));
+
+
+
+
+
+
 
 
         }

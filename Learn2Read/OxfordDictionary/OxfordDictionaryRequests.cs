@@ -12,7 +12,7 @@ namespace Learn2Read
 {
     public class OxfordDictionaryRequests
     {
-        public string GetTranscription(string word)
+        public string GetJSONPronunsiation(string word)
         {
             string site = $"https://od-api.oxforddictionaries.com:443/api/v1/entries/en/{word}/pronunciations";
 

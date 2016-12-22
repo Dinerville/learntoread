@@ -5,7 +5,8 @@ using System.Web;
 
 namespace Learn2Read
 {
-    public class BaseSoundButton
+    public class Metadata
     {
+        public string provider { get; set; }
     }
 }
