@@ -400,19 +400,39 @@ namespace Learn2Read
         protected void Button1_Click(object sender, EventArgs e)
         {
             
+            Label1.Text = "";
             var text = TextBox1.Text;
-            var oxforPronunciation = new OxfordDictionaryRequests();
-            var t = oxforPronunciation.GetJSONPronunsiation(text);
+            text = text.Trim();
+            var words = text.Split(' ');
+            var wordsList = new List<string>();
+            for (int i = 0; i < words.Length; i++)
+            {
+                if (!words[i].Equals(" "))
+                {
+                    wordsList.Add(words[i].Trim().Replace(",","").Replace(".","").Replace("'",""));
+                }
+            }
 
-            var objectr = JsonConvert.DeserializeObject<RootObject>(t);
+            if (words.Length==1)
+            {
+                var objectr = new OxfordDictionaryRequests().Parser(text);
+                var sound = objectr.results[0].lexicalEntries[0].pronunciations[0].phoneticSpelling;
 
+                Label1.Text = sound;
+
+                PlaceHolder1.Controls.Add(new LiteralControl($"<audio src=\"{objectr.results[0].lexicalEntries[0].pronunciations[0].audioFile}\" autoplay ></audio>"));
+            }
+            else
+            {
+                var objectrList = new OxfordDictionaryRequests().ParseArrayOfWords(wordsList);
+                foreach (RootObject word in objectrList)
+                {
+                    Label1.Text += word.results[0].lexicalEntries[0].pronunciations[0].phoneticSpelling??"nope";
+                    Label1.Text += " ";
+                }
+            }
             
-            var sound = objectr.results[0].lexicalEntries[0].pronunciations[0].audioFile;
-            Label1.Text = sound;
-            
-            PlaceHolder1.Controls.Add(new LiteralControl($"<audio src=\"{sound}\" controls autoplay ></audio>"));
-
-
+           
 
 
 

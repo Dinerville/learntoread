@@ -34,6 +34,35 @@ namespace Learn2Read
 
         }
 
-        
+        public RootObject Parser(string word)
+        {
+            var oxforPronunciation = new OxfordDictionaryRequests();
+            try
+            {
+                var t = oxforPronunciation.GetJSONPronunsiation(word);
+
+
+                var objectr = JsonConvert.DeserializeObject<RootObject>(t);
+
+                return objectr;
+
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public List<RootObject> ParseArrayOfWords(List<string> words)
+        {
+            var list = new List<RootObject>();
+            for (int i = 0; i < words.Count; i++)
+            {
+                list.Add(Parser(words[i]));
+            }
+            return list;
+        }
+
+
     }
 }

@@ -14,6 +14,8 @@
             <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
             <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             <asp:PlaceHolder ID="PlaceHolder1" runat="server"></asp:PlaceHolder>
+            <asp:PlaceHolder ID="PlaceHolder2" runat="server"></asp:PlaceHolder>
+            
         </div>
         <div id="workBoard">
     <div id ="sounds">
